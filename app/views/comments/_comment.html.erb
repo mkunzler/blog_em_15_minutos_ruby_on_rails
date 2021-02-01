@@ -1,0 +1,19 @@
+<div class="card">
+    <div class="card-body">
+      <p>
+        <strong>Título:</strong>
+        <%= comment.commenter %>
+      </p>
+
+      <p>
+        <%= content_tag(:strong, "Corpo1:") %>
+        <%= comment.body %>
+      </p>
+
+      <p>
+        <%= link_to 'Excluir Comentário', [comment.article, comment],
+                    method: :delete,
+                    data: { confirm: "Tem certeza que deseja excluir?" } %>
+      </p>
+  </div>
+</div>

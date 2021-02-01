@@ -1,0 +1,27 @@
+<%= form_with model: article do |form| %>
+  <div class="mb-3">
+    <%= form.label :Título, class: "form-label", for: "title" %><br>
+    <%= form.text_field :title, class: "form-control", id: "title" %>
+    <% article.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :Corpo, class: "form-label", for: "body" %><br>
+    <%= form.text_area :body, class: "form-control", id: "body" %><br>
+    <% article.errors.full_messages_for(:body).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :status, class: "form-label" %><br>
+    <%= form.select :status, render_article_options, { selected: 'public' }, { class: "form-select" } %>
+  </div>
+
+  <div>
+    <%= form.submit :Gravar, class: "btn btn-primary" %>
+    <%= link_to "Voltar", url_for(:back), class: "btn btn-warning" %>
+  </div>
+<% end %>

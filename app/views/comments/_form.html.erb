@@ -1,0 +1,19 @@
+<%= form_with model: [ @article, @article.comments.build ] do |form| %>
+  <div class="mb-3">
+    <%= form.label :Título, class: "form-label", for: "comment" %><br>
+    <%= form.text_field :commenter, class: "form-control", for: "comment" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :Corpo, class: "form-label", for: "texto" %><br>
+    <%= form.text_area :body, class: "form-control", id: "texto" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :status %><br>
+    <%= form.select :status, render_article_options, { selected: 'public' },
+    { class: "form-select" } %>
+  </div>
+  <div class="mb-3">
+    <%= form.submit :Gravar, class: "btn btn-primary" %>
+    <%= link_to "Voltar", url_for(:back), class: "btn btn-warning" %>
+  </div>
+<% end %>

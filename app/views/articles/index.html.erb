@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <!-- As a heading -->
+  <%= render "navbar" %>
+
+  <div class="card">
+    <div class="card-body">
+      <%= link_to "Novo Artigo", new_article_path, class: "btn btn-primary", role: "button" %>
+      <hr>
+      
+      <h5>Seu blog tem <%= Article.public_count %> artigos!</h5>
+  
+      <%= flash_message %>
+      <div class="row">
+          <% @articles.each do |article| %>
+            <% unless article.archived? %>
+            
+              <div class="col-sm">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= article.title %></h5>
+                    <%= link_to "Veja", article, class: "card-link" %>
+                  </div>
+                </div>
+              </div>
+            
+            <% end %>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>
