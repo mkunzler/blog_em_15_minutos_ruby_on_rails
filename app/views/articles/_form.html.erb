@@ -16,8 +16,19 @@
   </div>
 
   <div class="mb-3">
-    <%= form.label :status, class: "form-label" %><br>
-    <%= form.select :status, render_article_options, { selected: 'public' }, { class: "form-select" } %>
+    <%= form.label :status, for: "select" %><br>
+    <%= form.select :status, render_article_options, { selected: 'public' }, { class: 'form-control' } %>
+  </div>
+  
+  <div class="mb-3">
+    <%= form.label :Foto, class: "form-label", for: "file" %><br>
+    <%= form.file_field :avatar, class: "form-control", type: "file",
+     id: "file" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :Nome, class: "form-label", for: "name" %><br>
+    <%= form.text_field :nome, class: "form-control", id: "name" %>
   </div>
 
   <div>

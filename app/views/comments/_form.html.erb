@@ -9,8 +9,7 @@
   </div>
   <div class="mb-3">
     <%= form.label :status %><br>
-    <%= form.select :status, render_article_options, { selected: 'public' },
-    { class: "form-select" } %>
+    <%= form.select :status, render_article_options, { selected: 'public' }, { class: "form-control" } %>
   </div>
   <div class="mb-3">
     <%= form.submit :Gravar, class: "btn btn-primary" %>

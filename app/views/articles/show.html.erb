@@ -5,14 +5,19 @@
       <div class="card-body">
         <div class="row">
           <div class="col-sm">
+            <% if @article.avatar.attached? %>
+              <img class="img-thumbnail" style="width: 18rem;" src="<%= (url_for(@article.avatar)) %>">
+            <% else %>       
+              <%= image_tag("no_image", { class: "img-thumbnail", style: "width: 16rem;" }) %>             
+            <% end %>
+            <h6>Autor: <%= @article.nome %></h6>
+          </div>
+          <div class="col-sm">
             <h4><%= @article.title %></h4>
             <p><%= @article.body %></p>
           </div>
           <div class="col-sm">
-            <%= link_to "Editar", edit_article_path(@article), 
-            class: "btn btn-warning btn-sm" %>
-          </div>
-          <div class="col-sm">
+            <%= link_to "Editar", edit_article_path(@article), class: "btn btn-warning btn-sm" %>
             <%= link_to "Excluir", article_path(@article),
                           method: :delete,
                           data: { confirm: "Tem certeza que deseja excluir?" },
